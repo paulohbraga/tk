@@ -57,6 +57,7 @@ class UserAdd():
 		self.message.pack()
 		# Widget login message
 		self.messagelogin = Label(self.message)
+		self.messagelogin["font"] = ("Arial", "18")
 		self.messagelogin.pack()
 
 		self.file = "users.db"
