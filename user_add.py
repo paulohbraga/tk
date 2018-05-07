@@ -1,8 +1,13 @@
 from tkinter import *
+from load_text import *
+from first_window import *
+from config import Config
 
-class UserAdd():
+
+class UserAdd(Config):
 	"""Class User add"""
 	def __init__(self, master):
+		super().__init__()
 		# Frame pai de title
 		self.head = Frame(master)
 		self.head["padx"] = 110
@@ -11,7 +16,7 @@ class UserAdd():
 		
 		# Widget Label filho do frame title
 		self.title = Label(self.head, text="User Registration")
-		self.title["font"] = ("Calibri", "20", "bold")
+		self.title["font"] = (self.font, self.font_size, self.font_body)
 		self.title["padx"] = 50
 		self.title.pack()
 		# Frame pai de user
@@ -67,6 +72,7 @@ class UserAdd():
 	def check_user(self):
 		if self.name.get() == self.login_user and self.password.get() == self.password_user:
 			self.messagelogin["text"] = "Login sucess"
+			show_img()
 		else:
 			if self.name.get() != self.login_user:
 				self.messagelogin["text"] = "User incorrect"
